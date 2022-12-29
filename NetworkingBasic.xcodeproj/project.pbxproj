@@ -94,6 +94,7 @@
 		840F0AE029589518004F78C2 /* NetworkingBasicURLSession */ = {
 			isa = PBXGroup;
 			children = (
+				840F0AEF29589518004F78C2 /* Info.plist */,
 				847136FB295D627A0075580F /* MVC */,
 				847136FC295D629A0075580F /* MVVM */,
 				8471370F295D6F440075580F /* Services */,
@@ -224,7 +225,6 @@
 		84713711295D6F820075580F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				840F0AEF29589518004F78C2 /* Info.plist */,
 				840F0AEA29589518004F78C2 /* Assets.xcassets */,
 			);
 			path = Resources;

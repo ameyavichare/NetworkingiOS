@@ -39,4 +39,24 @@ final class WebService {
         
         return completionHandler(.failure(.unknown))
     }
+    
+    /// Generic function
+    func load<T: Decodable>(urlRequest: URLRequest, resourceType: T.Type, completionHandler: @escaping (Result<T, NetworkError>) -> Void) {
+        guard let url: URL = urlRequest.url else { return completionHandler(.failure(.badURL)) }
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data: Data = data {
+                if let parsedData = try? JSONDecoder().decode(T.self, from: data) {
+                    return completionHandler(.success(parsedData))
+                } else {
+                    return completionHandler(.failure(.parsingError))
+                }
+            } else if let _ = error {
+                return completionHandler(.failure(.invalidData))
+            }
+        }
+
+        task.resume()
+        
+        return completionHandler(.failure(.unknown))
+    }
 }

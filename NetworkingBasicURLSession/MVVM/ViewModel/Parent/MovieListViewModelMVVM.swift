@@ -38,13 +38,26 @@ extension MovieListViewModelMVVM {
             switch result {
             case .success(let movieList):
                 self.prepareDatasource(movieList: movieList)
-                
+
             case .failure(let error):
                 // Handle error here like showing a error popup etc.
                 break
 
             }
         }
+        
+//        service.load(urlRequest: request, resourceType: MovieListResponse.self) { [weak self] result in
+//            guard let self: MovieListViewModelMVVM = self else { return }
+//            switch result {
+//            case .success(let movieList):
+//                self.prepareDatasource(movieList: movieList)
+//
+//            case .failure(let error):
+//                // Handle error here like showing a error popup etc.
+//                break
+//
+//            }
+//        }
     }
 }
 
